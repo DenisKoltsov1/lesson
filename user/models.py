@@ -6,4 +6,4 @@ from django.contrib.auth.models import AbstractUser
 
 
 class MyUser(AbstractUser):
-    email = models.EmailField(unique=True)
+    email = models.EmailField(unique=False)

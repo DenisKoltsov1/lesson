@@ -1,11 +1,40 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h2> Урок</h2>
-</body>
-</html>
+{% extends 'testwork/base.html' %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+<h2> Урок</h2>
+
+
+{% for lesson in lesson %}
+<p>{{ lesson.name }}</p>
+    <tr >
+        
+        <td>{{ lesson.name }}</td>
+        <td><a href="{{ lesson.link }}">ссылка урок</a></td>
+        <td>{{ lesson.duration }}</td>
+
+        <br>
+
+        <script>
+        
+        <a onclick="location.href='{{ lesson.link }}'">Content</a>
+        var time=document.getElementsByTagName("video")[0].currentTime
+        document.write(time)
+        console.log(time)  
+        
+        </script>
+
+        <br>
+        <br>
+        <br>
+
+
+    </tr>
+{% endfor %}
+{% else %}
+<h2>Просматривать урок  может только зарегистрированный  пользователь</h2>
+
+{% endif %}
+{% endblock %}
+

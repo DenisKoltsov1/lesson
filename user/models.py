@@ -7,3 +7,4 @@ from django.contrib.auth.models import AbstractUser
 
 class MyUser(AbstractUser):
     email = models.EmailField(unique=False)
+    viewsTime = models.IntegerField(default=0)
